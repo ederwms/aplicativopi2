@@ -12,4 +12,8 @@ export class HomePage {
 
   }
 
+  perguntas() {
+    this.navCtrl.push(PerguntasPage);
+  }
+
 }
