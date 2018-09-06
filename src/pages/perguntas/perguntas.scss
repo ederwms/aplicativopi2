@@ -4,25 +4,37 @@ page-perguntas {
         height: 50%;
         border: 1px solid black;
         margin: 10% auto;
+        border-radius: 10px;
+        background: url('../../assets/imgs/sports.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
     p {
         text-align: center;
+        margin-bottom: 15%;
+        font-size: 20pt;
     }
 
-    .sim {
-        float: right;
+    .resposta h3 {
+        text-align: center;
+    }
+
+    .resposta {
+        display: inline-block;
         width: 20%;
         height: 10%;
         border: 1px solid black;
-        margin: 10% 80% 10% 20%;
+        margin-left: 20%;
+        border-radius: 5px;
     }
 
-    .nao {
-        float: left;
-        width: 20%;
-        height: 10%;
-        border: 1px solid black;
-        margin: 10% 20% 10% 80%;
+    #sim {
+        background-color: #03ec13   ;
+    }
+
+    #nao {
+        background-color: #d43f3a;
     }
 }
