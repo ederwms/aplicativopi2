@@ -1,9 +1,7 @@
 <ion-content class="main" padding>
   <div>
-    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"
-      placeholder="Qual é o seu destino?">
+    <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"
+      placeholder="Qual é o seu destino?" (keyup.enter)="perguntas()">
     </ion-searchbar>
   </div>
-
-  <button ion-button (click)='perguntas()'>ASDADASD </button>
 </ion-content>
