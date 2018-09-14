@@ -21,5 +21,4 @@ export class PerguntasPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad PerguntasPage');
   }
-
 }
