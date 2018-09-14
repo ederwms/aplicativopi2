@@ -15,12 +15,14 @@
   </div>
 
   <div class="responder">
-    <div id="nao" class="resposta">
+    <div (click)="respostaNao()" id="nao" class="resposta">
         <img class="icone" src="../../assets/imgs/no.png">
     </div>
   
-    <div id="sim" class="resposta">
+    <div (click)="respostaSim()" id="sim" class="resposta">
         <img class="icone" src="../../assets/imgs/heart.png">
     </div>
   </div>
+
+  <button (click)="goLista()">Ir para lista</button>
 </ion-content>
