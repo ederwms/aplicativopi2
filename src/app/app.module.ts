@@ -9,6 +9,19 @@ import { HomePage } from '../pages/home/home';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { ListaPage } from '../pages/lista/lista';
 
+import {AngularFireModule} from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+
+var config = {
+  apiKey: "AIzaSyC2G2zXMuDjhkfe1Vfq5gbWRNbOgU0l9TM",
+  authDomain: "projetopi2-unipam.firebaseapp.com",
+  databaseURL: "https://projetopi2-unipam.firebaseio.com",
+  projectId: "projetopi2-unipam",
+  storageBucket: "projetopi2-unipam.appspot.com",
+  messagingSenderId: "928373403336"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -18,7 +31,10 @@ import { ListaPage } from '../pages/lista/lista';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config) 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
