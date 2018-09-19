@@ -22,7 +22,7 @@ export class HomePage {
   }
 
   perguntas() {
-    this.fdb.list("/meusDados/perguntas/destino").push(this.destino)
+    this.fdb.list("/meusDados/destino").push(this.destino)
     this.navCtrl.push(PerguntasPage);
   }
 
