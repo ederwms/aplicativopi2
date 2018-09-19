@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ListaPage } from '../lista/lista';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 /**
  * Generated class for the PerguntasPage page.
@@ -18,7 +19,17 @@ let pergunta1: any = "1";
 })
 export class PerguntasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  arrData = []
+  resposta
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private fdb: AngularFireDatabase) {
+  
+    this.fdb.list("/meusDados/").subscribe(_data => {
+      this.arrData = _data;
+
+      console.log(this.arrData)
+    })
+  
   }
 
   ionViewDidLoad() {
@@ -26,15 +37,13 @@ export class PerguntasPage {
   }
 
   respostaSim() {
-    localStorage.setItem(pergunta1, "s");
-    let resposta1 = localStorage.getItem(pergunta1);
-    console.log("cu");
+    this.resposta = 's'
+    this.fdb.list("/meusDados/perguntas/").push(this.resposta)
   }
 
   respostaNao() {
-    localStorage.setItem(pergunta1, "n");
-    let resposta1 = localStorage.getItem(pergunta1);
-    console.log(resposta1);
+    this.resposta = 'n'
+    this.fdb.list("/meusDados/perguntas/").push(this.resposta)
   }
 
   goLista() {
