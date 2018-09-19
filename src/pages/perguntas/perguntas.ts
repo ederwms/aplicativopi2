@@ -28,7 +28,7 @@ export class PerguntasPage {
   respostaSim() {
     localStorage.setItem(pergunta1, "s");
     let resposta1 = localStorage.getItem(pergunta1);
-    console.log(resposta1);
+    console.log("cu");
   }
 
   respostaNao() {
