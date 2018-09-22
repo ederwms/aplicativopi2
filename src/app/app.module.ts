@@ -8,8 +8,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { ListaPage } from '../pages/lista/lista';
+import { IntroPage } from '../pages/intro/intro';
 
-import {AngularFireModule} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 
@@ -27,7 +28,8 @@ var config = {
     MyApp,
     HomePage,
     PerguntasPage,
-    ListaPage
+    ListaPage, 
+    IntroPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ var config = {
     MyApp,
     HomePage,
     PerguntasPage,
-    ListaPage
+    ListaPage, 
+    IntroPage
   ],
   providers: [
     StatusBar,
