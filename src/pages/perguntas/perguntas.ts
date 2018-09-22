@@ -3,15 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ListaPage } from '../lista/lista';
 import { AngularFireDatabase } from 'angularfire2/database';
 
-/**
- * Generated class for the PerguntasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-let pergunta1: any = "1";
-
 @IonicPage()
 @Component({
   selector: 'page-perguntas',
@@ -20,11 +11,12 @@ let pergunta1: any = "1";
 export class PerguntasPage {
 
   arrData = []
-  resposta
+  resposta: any;
+  private path: string = "meusDados/";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private fdb: AngularFireDatabase) {
   
-    this.fdb.list("/meusDados/").subscribe(_data => {
+    this.fdb.list(this.path).subscribe(_data => {
       this.arrData = _data;
 
       console.log(this.arrData)
@@ -38,12 +30,12 @@ export class PerguntasPage {
 
   respostaSim() {
     this.resposta = 's'
-    this.fdb.list("/meusDados/perguntas/").push(this.resposta)
+    this.fdb.list(this.path + "respostas/").push(this.resposta)
   }
 
   respostaNao() {
     this.resposta = 'n'
-    this.fdb.list("/meusDados/perguntas/").push(this.resposta)
+    this.fdb.list(this.path + "respostas/").push(this.resposta)
   }
 
   goLista() {

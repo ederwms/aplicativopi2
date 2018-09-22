@@ -1,4 +1,9 @@
-
+page-intro {
+    ion-content {
+        background-color: #ee9921 !important;
+        color: #304269;
+        font-family: 'Raleway';
+    }
     .diag {
         position: absolute;
         z-index: 1;
@@ -51,3 +56,5 @@
           z-index:5;
       }
 
+
+}
