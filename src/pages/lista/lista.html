@@ -14,5 +14,9 @@
 
 
 <ion-content>
-  <p>{{primeiraPergunta}}</p>
+  <ion-card *ngFor="let item of teste">
+    <ion-card-content>
+      {{item.$value}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

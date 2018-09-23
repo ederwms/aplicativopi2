@@ -19,22 +19,18 @@ export class PerguntasPage {
     this.fdb.list(this.path).subscribe(_data => {
       this.arrData = _data;
 
-      console.log(this.arrData)
+      //console.log(this.arrData)
     })
   
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PerguntasPage');
-  }
-
   respostaSim() {
-    this.resposta = 's'
+    this.resposta = 'sim'
     this.fdb.list(this.path + "respostas/").push(this.resposta)
   }
 
   respostaNao() {
-    this.resposta = 'n'
+    this.resposta = 'nao'
     this.fdb.list(this.path + "respostas/").push(this.resposta)
   }
 
