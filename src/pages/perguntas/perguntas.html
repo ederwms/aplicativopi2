@@ -5,6 +5,10 @@
 </ion-header>
 
 <ion-content>
+  <ion-slides>
+
+    <ion-slide class="qstn1">
+      <!--
   <div class="perguntar">
     <div class="foto">
 
@@ -13,8 +17,16 @@
       <h3>Pretende praticar esportes?</h3>
     </div>
   </div>
+  -->
 
-  <div class="responder">
+  <div class="cartao">
+    <ion-card>
+      <ion-card-header>
+        <div class="pergunt">
+        Deseja praticar esportes?
+        </div>
+      </ion-card-header>
+  <ion-card-content>
     <div (click)="respostaNao()" id="nao" class="resposta">
         <img class="icone" src="../../assets/imgs/no.png">
     </div>
@@ -22,7 +34,32 @@
     <div (click)="respostaSim()" id="sim" class="resposta">
         <img class="icone" src="../../assets/imgs/heart.png">
     </div>
+  </ion-card-content>
+  </ion-card>
   </div>
+
+  </ion-slide>
+      <ion-slide>
+    <div class="perguntar">
+      <div class="foto">
+  
+      </div>
+      <div class="question">
+        <h3>Pretende praticar esportes?</h3>
+      </div>
+    </div>
+  
+    <div class="responder">
+      <div (click)="respostaNao()" id="nao" class="resposta">
+          <img class="icone" src="../../assets/imgs/no.png">
+      </div>
+    
+      <div (click)="respostaSim()" id="sim" class="resposta">
+          <img class="icone" src="../../assets/imgs/heart.png">
+      </div>
+    </div>
+  </ion-slide>
+</ion-slides>
 
   <button (click)="goLista()">Ir para lista</button>
 </ion-content>
