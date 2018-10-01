@@ -67,7 +67,7 @@ export class PerguntasPage {
       this.path = "meusDados/respostas/parque"
     }
     this.resposta = 'nao'
-    this.fdb.list(this.path + "respostas/").push(this.resposta)
+    this.fdb.list(this.path).push(this.resposta)
     this.slides.lockSwipes(false)
     this.slides.slideNext(500)
     this.slides.lockSwipes(true)
