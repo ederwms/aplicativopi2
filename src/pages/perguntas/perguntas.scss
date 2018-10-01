@@ -86,7 +86,12 @@ page-perguntas {
             padding-top: 5%;
             border-top-left-radius: 50%;
             border-top-right-radius: 50%;
+            height: 200px;
+            
         }   
     }
 
+    ion-card {
+        width: 1000px;
+    }
 }
