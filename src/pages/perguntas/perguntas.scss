@@ -24,28 +24,28 @@ page-perguntas {
         background: url('../../assets/imgs/sports.jpg');
         background-size: cover;
         background-position: center;
-        margin-top: -40%;
+        //margin-top: -40%;
     }
 
     .qstn2{
         background: url('../../assets/imgs/work2.jpg');
         background-size: cover;
         background-position: 20%;
-        margin-top: -40%;
+        //margin-top: -40%;
     }
 
     .qstn3{
         background: url('../../assets/imgs/night.jpg');
         background-size: cover;
         background-position: 5%;
-        margin-top: -40%;
+        //margin-top: -40%;
     }
 
     .qstn4{
         background: url('../../assets/imgs/pool2.jpg');
         background-size: cover;
         background-position: center;
-        margin-top: -40%;   
+        //margin-top: -40%;   
     }
 
 
@@ -82,10 +82,10 @@ page-perguntas {
     }
     .card {
         @media screen and (max-width: 2000px) and (min-width: 300px) {
-            margin-top: 200%;
+            margin-top: 150%;
             padding-top: 5%;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
+            border-top-left-radius: 45%;
+            border-top-right-radius: 45%;
             height: 200px;
             
         }   
