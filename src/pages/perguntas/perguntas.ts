@@ -14,7 +14,6 @@ import { Slides } from 'ionic-angular';
 export class PerguntasPage {
 
   arrData = []
-  resposta: any;
   private path: string = "meusDados/";
   @ViewChild(Slides) slides: Slides;
 
@@ -28,46 +27,15 @@ export class PerguntasPage {
     })
   
   }
-
-  respostaSim() {
-    let slideAtual = this.slides.getActiveIndex()
-    if(slideAtual == 0){
-      this.path = "meusDados/respostas/esportes"
-    }
-    else if(slideAtual == 1){
-      this.path = "meusDados/respostas/trabalho"
-    }
-    else if(slideAtual == 2){
-      this.path = "meusDados/respostas/passeioNot"
-    }
-    else if(slideAtual == 3){
-      this.path = "meusDados/respostas/parque"
-    }
-    this.resposta = 'sim'
-    this.fdb.list(this.path).push(this.resposta)
-    this.slides.lockSwipes(false)
-    this.slides.slideNext(500)
-    this.slides.lockSwipes(true)
-    console.log(this.slides.getActiveIndex())
+  
+  responder(pergunta: string,resposta: string) {
+    let slideAtual = this.slides.getActiveIndex().toString()
+    this.path = "meusDados/respostas/"
     console.log(this.path)
-  }
-
-  respostaNao() {
-    let slideAtual = this.slides.getActiveIndex()
-    if(slideAtual == 0){
-      this.path = "meusDados/respostas/esportes"
-    }
-    else if(slideAtual == 1){
-      this.path = "meusDados/respostas/trabalho"
-    }
-    else if(slideAtual == 2){
-      this.path = "meusDados/respostas/passeioNot"
-    }
-    else if(slideAtual == 3){
-      this.path = "meusDados/respostas/parque"
-    }
-    this.resposta = 'nao'
-    this.fdb.list(this.path).push(this.resposta)
+    console.log(resposta)
+    this.fdb.list(this.path).push({
+      [pergunta]: resposta,
+    })
     this.slides.lockSwipes(false)
     this.slides.slideNext(500)
     this.slides.lockSwipes(true)
