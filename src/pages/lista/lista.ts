@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database';
 
 @IonicPage()
 @Component({
@@ -12,15 +11,12 @@ export class ListaPage {
   teste: any;
   path: any = "meusDados/"
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fdb: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.pegaDados();
   }
 
   pegaDados() {
-    this.fdb.list(this.path + 'destinos').subscribe(data => {
-      this.teste = data.map(item => item);
-      //console.log(this.teste);
-    });
+    
   }
 
 }

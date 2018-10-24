@@ -11,8 +11,7 @@ import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { ListaPage } from '../pages/lista/lista';
 import { IntroPage } from '../pages/intro/intro';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import firebase from 'firebase';
 
 
 var config = {
@@ -23,6 +22,7 @@ var config = {
   storageBucket: "projetopi2-unipam.appspot.com",
   messagingSenderId: "928373403336"
 };
+firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
@@ -34,10 +34,7 @@ var config = {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    AngularFireModule,
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(config) 
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
