@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { ListaPage } from '../pages/lista/lista';
 import { IntroPage } from '../pages/intro/intro';
+import { FbauthPage } from '../pages/fbauth/fbauth';
 
 import firebase from 'firebase';
 
@@ -30,7 +31,8 @@ firebase.initializeApp(config);
     HomePage,
     PerguntasPage,
     ListaPage, 
-    IntroPage
+    IntroPage,
+    FbauthPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ firebase.initializeApp(config);
     HomePage,
     PerguntasPage,
     ListaPage, 
-    IntroPage
+    IntroPage,
+    FbauthPage
   ],
   providers: [
     StatusBar,
