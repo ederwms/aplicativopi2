@@ -5,7 +5,6 @@ import { ViewChild } from '@angular/core';
 import firebase from 'firebase';
 import { Slides } from 'ionic-angular';
 
-
 @IonicPage()
 @Component({
   selector: 'page-perguntas',
@@ -13,17 +12,16 @@ import { Slides } from 'ionic-angular';
 })
 export class PerguntasPage {
 
-  arrData = []
   @ViewChild(Slides) slides: Slides;
-
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   
   }
-  
+  userId: string = firebase.auth().currentUser.uid;
   responder(pergunta: string,resposta: string) {
+    
     console.log(resposta)
-    firebase.database().ref('meusDados/respostas'/* + userId*/).update({
+    firebase.database().ref('meusDados/respostas/' + this.userId).update({
       [pergunta]: resposta,
     })
     this.slides.lockSwipes(false)
