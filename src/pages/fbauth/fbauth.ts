@@ -28,7 +28,7 @@ export class FbauthPage {
   }
   facebookLogin() {
     var provider = new firebase.auth.FacebookAuthProvider();
-    firebase.auth().signInWithPopup(provider);
+    firebase.auth().signInWithRedirect(provider);
     
     var user = firebase.auth().currentUser;
     
