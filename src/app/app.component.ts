@@ -3,10 +3,11 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import firebase from 'firebase';
 
-//import { HomePage } from '../pages/home/home';
+import { HomePage } from '../pages/home/home'
 import { IntroPage } from '../pages/intro/intro';
-import { HomePage } from '../pages/home/home';
+import { FbauthPage } from '../pages/fbauth/fbauth'
 
 
 @Component({
@@ -19,12 +20,20 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private screenOrientation: ScreenOrientation) {
     localStorage.setItem("mostrouIntro", 's');
 
-    if(this.mostrou == 's') {
-      this.rootPage = IntroPage;// Teste
-    }
-    else {
-      this.rootPage = IntroPage;
-    }
+
+    var user = firebase.auth().currentUser;
+
+  if (user) {
+    this.rootPage = HomePage;
+  } else {
+      if(this.mostrou == 's') {
+        this.rootPage = FbauthPage;
+      }
+      else {
+        this.rootPage = IntroPage;
+      }
+
+  }
 
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY);
     
