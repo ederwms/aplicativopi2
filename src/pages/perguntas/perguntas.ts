@@ -14,7 +14,7 @@ export class PerguntasPage {
 
   @ViewChild(Slides) slides: Slides;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, ) {
   
   }
   userId: string = firebase.auth().currentUser.uid;
@@ -27,6 +27,9 @@ export class PerguntasPage {
     this.slides.lockSwipes(false)
     this.slides.slideNext(500)
     this.slides.lockSwipes(true)
+    if (pergunta == 'parqueAq'){
+      this.navCtrl.push(ListaPage);
+    }
   }
 
   goLista() {
