@@ -27,12 +27,23 @@ export class ListaPage {
       var pergunta = snap.val()
       if (pergunta.esportes == 'sim')
         proBanco.update({esportes: 'Equipamentos esportivos'})
+      else
+        proBanco.update({esportes: null})
+
       if (pergunta.parqueAq == 'sim')
         proBanco.update({parqueAq:'Roupa de banho'})
+      else
+        proBanco.update({parqueAq: null})
+
       if (pergunta.passeioN == 'sim')
         proBanco.update({passeioN:'Roupa de passeio'})
+      else
+        proBanco.update({passeioN: null})
+      
       if (pergunta.trabalho == 'sim')
         proBanco.update({trabalho:'Roupa social'})
+      else
+        proBanco.update({trabalho: null})
     })
   }
 
