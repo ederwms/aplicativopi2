@@ -24,24 +24,28 @@ page-perguntas {
         background: url('../../assets/imgs/sports.jpg');
         background-size: cover;
         background-position: center;
+        //margin-top: -40%;
     }
 
     .qstn2{
-        background: url('../../assets/imgs/trab.jpeg');
+        background: url('../../assets/imgs/work2.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: 20%;
+        //margin-top: -40%;
     }
 
     .qstn3{
-        background: url('../../assets/imgs/noturno.jpg');
+        background: url('../../assets/imgs/night.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: 5%;
+        //margin-top: -40%;
     }
 
-        .qstn4{
-        background: url('../../assets/imgs/aquatico.jpg');
+    .qstn4{
+        background: url('../../assets/imgs/pool2.jpg');
         background-size: cover;
         background-position: center;
+        //margin-top: -40%;   
     }
 
 
@@ -61,8 +65,9 @@ page-perguntas {
 
     
     .pergunt {
-        font-size: 1.6em;
+        font-size: 1.1em;
         font-weight: 500;
+        font-family: 'Raleway';
     }
 
     .responder {
@@ -75,7 +80,18 @@ page-perguntas {
         width: 20%;
         margin: 0% 10%;
     }
-    .cartao {
-        margin-top: 75%;
+    .card {
+        @media screen and (max-width: 2000px) and (min-width: 300px) {
+            margin-top: 150%;
+            padding-top: 5%;
+            border-top-left-radius: 45%;
+            border-top-right-radius: 45%;
+            height: 200px;
+            
+        }   
+    }
+
+    ion-card {
+        width: 1000px;
     }
 }

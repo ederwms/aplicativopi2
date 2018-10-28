@@ -1,13 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
-import { HomePage } from '../home/home';
-
-/**
- * Generated class for the IntroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { FbauthPage } from '../fbauth/fbauth';
+import { ListaPage } from '../lista/lista';
 
 @IonicPage()
 @Component({
@@ -17,13 +11,14 @@ import { HomePage } from '../home/home';
 export class IntroPage {
 
   pularMsg: string = "Pular";
+
   @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   pular() {
-    this.navCtrl.push(HomePage);
+    this.navCtrl.push(ListaPage);
   }
 
   slideChanged() {

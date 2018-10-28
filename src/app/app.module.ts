@@ -3,15 +3,16 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PerguntasPage } from '../pages/perguntas/perguntas';
 import { ListaPage } from '../pages/lista/lista';
 import { IntroPage } from '../pages/intro/intro';
+import { FbauthPage } from '../pages/fbauth/fbauth';
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+import firebase from 'firebase';
 
 
 var config = {
@@ -22,6 +23,7 @@ var config = {
   storageBucket: "projetopi2-unipam.appspot.com",
   messagingSenderId: "928373403336"
 };
+firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
@@ -29,14 +31,12 @@ var config = {
     HomePage,
     PerguntasPage,
     ListaPage, 
-    IntroPage
+    IntroPage,
+    FbauthPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    AngularFireModule,
-    AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(config) 
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,12 +44,14 @@ var config = {
     HomePage,
     PerguntasPage,
     ListaPage, 
-    IntroPage
+    IntroPage,
+    FbauthPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ScreenOrientation
   ]
 })
 export class AppModule {}

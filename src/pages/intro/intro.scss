@@ -1,9 +1,30 @@
 page-intro {
     ion-content {
-        background-color: #ee9921 !important;
-        color: #304269;
+        background-color: #e99651 !important;
+        color: #222222;
         font-family: 'Raleway';
     }
+
+    @media screen and (min-width:320px) {
+        button {
+           font-size: 1.5em;;
+        }
+        div p {
+            font-size: 1.1em;
+            text-align: center;
+        }
+    }
+
+    @media screen and (min-width:360px) {
+        button {
+            font-size: 1.2em;;
+         }
+         div p {
+             font-size: 0.9em;
+             text-align: center;
+         }
+    }
+
     .diag {
         position: absolute;
         z-index: 1;
@@ -14,11 +35,11 @@ page-intro {
       
       ion-icon {
           margin-top: 40%;
-          font-size:7em;
+          font-size:7.5em;
       }
       
       * {
-          color: #304269;
+          color: #222222;
       }
 
       h2 {

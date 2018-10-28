@@ -2,7 +2,7 @@
   <ion-slides pager (ionSlideDidChange)="slideChanged()">
       <ion-slide>
           <div class="diag" style="background: url('assets/img/whitebg.svg') no-repeat">
-            <ion-icon ios="ios-happy" md="md-happy"></ion-icon>
+            <ion-icon name="happy"></ion-icon>
           </div>
 
           <div>
@@ -12,14 +12,14 @@
 
       <ion-slide>
         <div class="diag" style="background: url('assets/img/whitebg.svg') no-repeat">
-          <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+          <ion-icon name="checkmark"></ion-icon>
         </div>
 
         <div>
             <h2>Sem preocupações</h2>
             <p>Não se preocupe com o que levar para sua viagem. Nós organizamos tudo para você!</p>
         </div>
-      </ion-slide>
+      </ion-slide>  
   </ion-slides>
   <button (click)="pular()" id="skip"> <span class="pularMsg">{{ pularMsg }}</span> </button>
 </ion-content>

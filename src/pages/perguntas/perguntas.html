@@ -1,104 +1,90 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Travel</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content>
   <ion-slides>
 
     <ion-slide class="qstn1">
-  <div class="cartao">
-    <ion-card>
-      <ion-card-header>
-        <div class="pergunt">
-        Deseja praticar esportes?
-        </div>
-      </ion-card-header>
-  <ion-card-content>
-    <div (click)="respostaNao()" id="nao" class="resposta">
-        <img class="icone" src="../../assets/imgs/no.png">
-    </div>
-  
-    <div (click)="respostaSim()" id="sim" class="resposta">
-        <img class="icone" src="../../assets/imgs/heart.png">
-    </div>
-  </ion-card-content>
-  </ion-card>
-  </div>
-  </ion-slide>
+      <div class="cartao">
+        <ion-card>
+          <ion-card-header>
+            <div class="pergunt">
+              Irá praticar esportes?
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <div (click)="responder('esportes','nao')" id="nao" class="resposta">
+              <img class="icone" src="../../assets/imgs/nao.png">
+            </div>
 
-  <ion-slide class="qstn2">
-  <div class="cartao">
-    <ion-card>
-      <ion-card-header>
-        <div class="pergunt">
-       Será uma viagem a trabalho?
-        </div>
-      </ion-card-header>
-  <ion-card-content>
-    <div (click)="respostaNao()" id="nao" class="resposta">
-        <img class="icone" src="../../assets/imgs/no.png">
-    </div>
-  
-    <div (click)="respostaSim()" id="sim" class="resposta">
-        <img class="icone" src="../../assets/imgs/heart.png">
-    </div>
-  </ion-card-content>
-  </ion-card>
-  </div>
-  </ion-slide>
+            <div (click)="responder('esportes','sim')" id="sim" class="resposta">
+              <img class="icone" src="../../assets/imgs/sim.png">
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-slide>
 
-  <ion-slide class="qstn3">
-  <div class="cartao">
-    <ion-card>
-      <ion-card-header>
-        <div class="pergunt">
-       Irá fazer passeio noturno ?
-        </div>
-      </ion-card-header>
-  <ion-card-content>
-    <div (click)="respostaNao()" id="nao" class="resposta">
-        <img class="icone" src="../../assets/imgs/no.png">
-    </div>
-  
-    <div (click)="respostaSim()" id="sim" class="resposta">
-        <img class="icone" src="../../assets/imgs/heart.png">
-    </div>
-  </ion-card-content>
-  </ion-card>
-  </div>
-  </ion-slide>
+    <ion-slide class="qstn2">
+      <div class="cartao">
+        <ion-card>
+          <ion-card-header>
+            <div class="pergunt">
+              Será uma viagem a trabalho?
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <div (click)="responder('trabalho','nao')" id="nao" class="resposta">
+              <img class="icone" src="../../assets/imgs/nao.png">
+            </div>
+
+            <div (click)="responder('trabalho','sim')" id="sim" class="resposta">
+              <img class="icone" src="../../assets/imgs/sim.png">
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-slide>
+
+    <ion-slide class="qstn3">
+      <div class="cartao">
+        <ion-card>
+          <ion-card-header>
+            <div class="pergunt">
+              Irá fazer passeio noturno?
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <div (click)="responder('passeioN','nao')" id="nao" class="resposta">
+              <img class="icone" src="../../assets/imgs/nao.png">
+            </div>
+
+            <div (click)="responder('passeioN','sim')" id="sim" class="resposta">
+              <img class="icone" src="../../assets/imgs/sim.png">
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-slide>
 
     <ion-slide class="qstn4">
-  <div class="cartao">
-    <ion-card>
-      <ion-card-header>
-        <div class="pergunt">
-       Irá ao Parque Aquatico ?
-        </div>
-      </ion-card-header>
-  <ion-card-content>
-    <div (click)="respostaNao()" id="nao" class="resposta">
-        <img class="icone" src="../../assets/imgs/no.png">
-    </div>
-  
-    <div (click)="respostaSim()" id="sim" class="resposta">
-        <img class="icone" src="../../assets/imgs/heart.png">
-    </div>
-  </ion-card-content>
-  </ion-card>
-  </div>
-  </ion-slide>
+      <div class="cartao">
+        <ion-card>
+          <ion-card-header>
+            <div class="pergunt">
+              Irá ao parque aquático?
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <div (click)="responder('parqueAq','nao')" id="nao" class="resposta">
+              <img class="icone" src="../../assets/imgs/nao.png">
+            </div>
 
+            <div (click)="responder('parqueAq','sim')" id="sim" class="resposta">
+              <img class="icone" src="../../assets/imgs/sim.png">
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </ion-slide>
 
+  </ion-slides>
 
-
-
-
-
-
-</ion-slides>
-
-  <button (click)="goLista()">Ir para lista</button>
 </ion-content>

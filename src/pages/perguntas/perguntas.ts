@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ListaPage } from '../lista/lista';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { ViewChild } from '@angular/core';
+import firebase from 'firebase';
 import { Slides } from 'ionic-angular';
-
 
 @IonicPage()
 @Component({
@@ -13,36 +12,24 @@ import { Slides } from 'ionic-angular';
 })
 export class PerguntasPage {
 
-  arrData = []
-  resposta: any;
-  private path: string = "meusDados/";
   @ViewChild(Slides) slides: Slides;
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fdb: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, ) {
   
-    this.fdb.list(this.path).subscribe(_data => {
-      this.arrData = _data;
-
-      //console.log(this.arrData)
+  }
+  userId: string = firebase.auth().currentUser.uid;
+  responder(pergunta: string,resposta: string) {
+    
+    console.log(resposta)
+    firebase.database().ref('meusDados/respostas/' + this.userId).update({
+      [pergunta]: resposta,
     })
-  
-  }
-
-  respostaSim() {
-    this.resposta = 'sim'
-    this.fdb.list(this.path + "respostas/").push(this.resposta)
     this.slides.lockSwipes(false)
     this.slides.slideNext(500)
     this.slides.lockSwipes(true)
-  }
-
-  respostaNao() {
-    this.resposta = 'nao'
-    this.fdb.list(this.path + "respostas/").push(this.resposta)
-    this.slides.lockSwipes(false)
-    this.slides.slideNext(500)
-    this.slides.lockSwipes(true)
+    if (pergunta == 'parqueAq'){
+      this.navCtrl.push(ListaPage);
+    }
   }
 
   goLista() {
