@@ -50,10 +50,18 @@ export class ListaPage {
 
   escreveLista() {
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_added', function(snap){
-      const li = document.createElement("li");
-      li.innerText = snap.val()
+      var itemId = snap.key + "Item";
+      const li = document.createElement("ion-label");
+      const ionItem = document.createElement("ion-item");
+      const check = document.createElement("input");
+      check.type = "checkbox";
+      check.className = "chek"
+      li.innerText = snap.val();
       li.id = snap.key;
-      document.getElementById("lista").appendChild(li);
+      ionItem.id = itemId;
+      document.getElementById("lista").appendChild(ionItem);
+      document.getElementById(itemId).appendChild(check);
+      document.getElementById(itemId).appendChild(li);
     })
 
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_changed', function(snap){

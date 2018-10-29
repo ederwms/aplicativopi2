@@ -21,4 +21,11 @@ page-lista {
         color: black;
         background-color: #e99651;
     }
+    ion-item {
+        display: block;
+    }
+    ion-label {
+        display: inline;
+    }
+    
 }
