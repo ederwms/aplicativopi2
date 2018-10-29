@@ -23,45 +23,34 @@ export class ListaPage {
 
   pegaDados() {
     console.log(this.userId)
+    firebase.database().ref('meusDados/respostas/' + this.userId + '/lista').set({esportes: null})
+    var novoItemKey = firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').push();
     var proBanco = firebase.database().ref('meusDados/respostas/' + this.userId + '/lista')
     firebase.database().ref('meusDados/respostas/' + this.userId).once('value', function(snap){
       var pergunta = snap.val()
       if (pergunta.esportes == 'sim')
-        proBanco.update({esportes: 'Equipamentos esportivos'})
-      else
-        proBanco.update({esportes: null})
+        proBanco.update({[novoItemKey.key]: 'Camisa regata'})
 
       if (pergunta.parqueAq == 'sim')
-        proBanco.update({parqueAq:'Roupa de banho'})
-      else
-        proBanco.update({parqueAq: null})
+        proBanco.update({[novoItemKey.key]:'Roupa de banho'})
+
 
       if (pergunta.passeioN == 'sim')
-        proBanco.update({passeioN:'Roupa de passeio'})
-      else
-        proBanco.update({passeioN: null})
+        proBanco.update({[novoItemKey.key]:'Roupa de passeio'})
+
       
       if (pergunta.trabalho == 'sim')
-        proBanco.update({trabalho:'Roupa social'})
-      else
-        proBanco.update({trabalho: null})
+        proBanco.update({[novoItemKey.key]:'Roupa social'})
+      
     })
   }
 
   escreveLista() {
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_added', function(snap){
-      var itemId = snap.key + "Item";
-      const li = document.createElement("ion-label");
-      const ionItem = document.createElement("ion-item");
-      const check = document.createElement("input");
-      check.type = "checkbox";
-      check.className = "chek"
-      li.innerText = snap.val();
+      const li = document.createElement("li");
+      li.innerText = snap.val()
       li.id = snap.key;
-      ionItem.id = itemId;
-      document.getElementById("lista").appendChild(ionItem);
-      document.getElementById(itemId).appendChild(check);
-      document.getElementById(itemId).appendChild(li);
+      document.getElementById("lista").appendChild(li);
     })
 
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_changed', function(snap){
