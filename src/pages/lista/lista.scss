@@ -3,4 +3,22 @@ page-lista {
         list-style: none;
         font-family: Raleway;
     }
+    ion-title {
+        font-family: Montserrat;
+        font-weight: bolder;
+    }
+    #lista {
+        list-style: none;
+        font-family: Raleway;
+    }
+    ion-input {
+        font-family: Montserrat;
+        font-style: italic;
+    }
+    .btn {
+        font-family: Montserrat;
+        font-weight: bolder;
+        color: black;
+        background-color: #e99651;
+    }
 }
