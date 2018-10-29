@@ -21,36 +21,56 @@ export class ListaPage {
     this.escreveLista();
   }
 
+  
+
   pegaDados() {
-    console.log(this.userId)
     firebase.database().ref('meusDados/respostas/' + this.userId + '/lista').set({esportes: null})
-    var novoItemKey = firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').push();
+    var novoItemKey = firebase.database().ref('meusDados/respostas/' + this.userId).child('lista');
     var proBanco = firebase.database().ref('meusDados/respostas/' + this.userId + '/lista')
     firebase.database().ref('meusDados/respostas/' + this.userId).once('value', function(snap){
       var pergunta = snap.val()
       if (pergunta.esportes == 'sim')
-        proBanco.update({[novoItemKey.key]: 'Camisa regata'})
+        proBanco.update({
+          [novoItemKey.push().key]: 'Camisa regata',
+          [novoItemKey.push().key]: 'Shorts',
+          [novoItemKey.push().key]: 'Tênis para esportes',
+      })
 
       if (pergunta.parqueAq == 'sim')
-        proBanco.update({[novoItemKey.key]:'Roupa de banho'})
+        proBanco.update({
+          [novoItemKey.push().key]:'Roupa de banho',
+          [novoItemKey.push().key]:'Toalha',
+          [novoItemKey.push().key]:'Chinelo',
+        })
 
 
       if (pergunta.passeioN == 'sim')
-        proBanco.update({[novoItemKey.key]:'Roupa de passeio'})
+        proBanco.update({
+          [novoItemKey.push().key]:'Roupa de passeio'
+      })
 
       
       if (pergunta.trabalho == 'sim')
-        proBanco.update({[novoItemKey.key]:'Roupa social'})
-      
+        proBanco.update({
+          [novoItemKey.push().key]:'Roupa social'
+      })
     })
   }
 
   escreveLista() {
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_added', function(snap){
-      const li = document.createElement("li");
-      li.innerText = snap.val()
+      var itemId = snap.key + "Item";
+      const li = document.createElement("ion-label");
+      const ionItem = document.createElement("ion-item");
+      const check = document.createElement("input");
+      check.type = "checkbox";
+      check.className = "chek"
+      li.innerText = snap.val();
       li.id = snap.key;
-      document.getElementById("lista").appendChild(li);
+      ionItem.id = itemId;
+      document.getElementById("lista").appendChild(ionItem);
+      document.getElementById(itemId).appendChild(check);
+      document.getElementById(itemId).appendChild(li);
     })
 
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_changed', function(snap){
