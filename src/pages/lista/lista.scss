@@ -7,10 +7,6 @@ page-lista {
         font-family: Montserrat;
         font-weight: bolder;
     }
-    #lista {
-        list-style: none;
-        font-family: Raleway;
-    }
     ion-input {
         font-family: Montserrat;
         font-style: italic;
@@ -26,6 +22,7 @@ page-lista {
     }
     ion-label {
         display: inline;
+        margin-left: 5%;
     }
     
     ion-icon {
