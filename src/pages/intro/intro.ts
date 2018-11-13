@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
 import { FbauthPage } from '../fbauth/fbauth';
-import { ListaPage } from '../lista/lista';
 
 @IonicPage()
 @Component({
@@ -18,7 +17,7 @@ export class IntroPage {
   }
 
   pular() {
-    this.navCtrl.push(ListaPage);
+    this.navCtrl.push(FbauthPage);
   }
 
   slideChanged() {
