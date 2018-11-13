@@ -3,5 +3,10 @@
     <ion-searchbar [(ngModel)]="destino" class="destino" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)"
       placeholder="Qual é o seu destino?" (keyup.enter)="perguntas()">
     </ion-searchbar>
+    <ion-item>
+      <ion-label>Data</ion-label>
+      <ion-datetime [(ngModel)]="myDate" displayFormat="DD/MM/YYYY" min="2018" max="2025-12-31" placeholder="18-12-2019"></ion-datetime>
+    </ion-item>
+    <button ion-button color="primary" block type="submit" (click)="perguntas(destino, myDate)">Salvar</button>
   </div>
 </ion-content>

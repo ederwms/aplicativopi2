@@ -13,6 +13,7 @@ import { IntroPage } from '../pages/intro/intro';
 import { FbauthPage } from '../pages/fbauth/fbauth';
 
 import firebase from 'firebase';
+import { HttpClientModule } from '@angular/common/http';
 
 
 var config = {
@@ -36,6 +37,7 @@ firebase.initializeApp(config);
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

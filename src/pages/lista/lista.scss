@@ -15,7 +15,7 @@ page-lista {
         font-family: Montserrat;
         font-weight: bolder;
         color: black;
-        background-color: #e99651;
+        background-color: #e99651 !important;
     }
     ion-item {
         display: block;
@@ -23,6 +23,8 @@ page-lista {
     ion-label {
         display: inline;
         margin-left: 5%;
+        font-size: 1.2em;
+        font-weight: 600;
     }
     
     ion-icon {

@@ -10,14 +10,16 @@ import { ListaPage } from '../lista/lista';
 })
 export class HomePage {
 
-  arrData = [];
   destino: any;
+  myDate: any;
 
   constructor(public navCtrl: NavController) {
     
   }
 
   perguntas() {
+    localStorage.setItem('destino', this.destino);
+    localStorage.setItem('data', this.myDate);
     this.navCtrl.push(PerguntasPage);
   }
 

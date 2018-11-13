@@ -1,9 +1,4 @@
 <!--
-  Generated template for the ListaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
@@ -11,11 +6,11 @@
   </ion-navbar>
 
 </ion-header>
-
+-->
 
 <ion-content>
   <ion-icon name="sunny"></ion-icon>
-  <h1 class="rj">Rio de Janeiro, 30°</h1>
+  <h1 class="rj"></h1>
   <ion-card>
     <ion-card-content>
     <ion-list id="lista">
@@ -25,6 +20,7 @@
   </ion-card>
   <ion-card>
       <ion-card-content>
+          <h2>Faltou algum item na lista?</h2>
           <ion-input type="text" [(ngModel)]="newItem" id="newItem" placeholder="Adicionar item:"></ion-input>
           <button ion-button class="btn" (click)="adicionarItem()" >Adicionar</button>
       </ion-card-content>
