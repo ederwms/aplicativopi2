@@ -19,6 +19,8 @@ page-lista {
     }
     ion-item {
         display: block;
+        border-bottom: 1px solid #cecece;
+        padding: 8px;
     }
     ion-label {
         display: inline;
@@ -34,9 +36,18 @@ page-lista {
     }
     .rj {
         float: right;   
-        margin-top: 10%;
-        margin-bottom: 12%;
+        margin-top: 5%;
         margin-right: 5%;
         font-family: Montserrat;
+    }
+    .chek {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 6%;
+        cursor: pointer;
+        opacity: 1;
+        background: #ccc;
+        border-radius: 30px;
     }
 }

@@ -10,9 +10,10 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'lista.html',
 })
 export class ListaPage {
-
-  // Variavel que armazena o objeto que contem as coordenadas.
-  // É mais facil de manipular o objeto com essa variavel.
+  /**
+   * Variavel que armazena o objeto que contem as coordenadas.
+   * É mais facil de manipular o objeto com essa variavel.
+   */
   coordenadas;
   // Variavel que armazena o objeto da previsao do tempo.
   previsao;
@@ -41,7 +42,7 @@ export class ListaPage {
   // Método para buscar os dados de clima com as APIs Geocoding(para coordenadas) e DarkSky Weather API 
   buscaClima(destino: string, data: any) {
     // Requisição a MapQuest API para obter as coordenadas da cidade digitada.
-    return this.http.get('http://www.mapquestapi.com/geocoding/v1/address?key=ZPPzipVJfjQixqkURm75wzqnAnVZzRL9&location='+destino+'&maxResults=1').subscribe(geo => {
+    return this.http.get('http://www.mapquestapi.com/geocoding/v1/address?key=ZPPzipVJfjQixqkURm75wzqnAnVZzRL9&location=' + destino + '&maxResults=1').subscribe(geo => {
       this.coordenadas = geo;
       let lat = this.coordenadas.results['0'].locations['0'].latLng.lat; // Latitude
       let long = this.coordenadas.results['0'].locations['0'].latLng.lng; // Longitude
@@ -52,13 +53,16 @@ export class ListaPage {
       let segundos = this.horario.getSeconds() < 10 ? '0' + this.horario.getSeconds() : this.horario.getSeconds();
 
       // Requisição a DarkSky API
-      let url = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d6930b3aaccb1375812ce727ea86dbfc/'+lat+','+long+','+data+'T'+horas+':'+minutos+':'+segundos+'?units=si&lang=pt&exclude=minutely,flags&outFormat=json';
+      let url = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d6930b3aaccb1375812ce727ea86dbfc/' + lat + ',' + long + ',' + data + 'T' + horas + ':' + minutos + ':' + segundos + '?units=si&lang=pt&exclude=minutely,flags&outFormat=json';
       this.http.get(url).subscribe(data => {
         this.previsao = data;
         let info = document.querySelector('ion-content h1.rj');
+        let infoClima = document.querySelector('ion-content h5.weather');
+        let infoClimaText = document.createTextNode(this.previsao.currently.summary);
         let infoText = document.createTextNode(this.cidade + ', ' + Math.floor(this.previsao.currently.temperature) + '°');
         info.appendChild(infoText);
-        //console.log(this.previsao);
+        infoClima.appendChild(infoClimaText);
+        console.log(this.previsao);
       });
     });
   }
@@ -121,38 +125,50 @@ export class ListaPage {
           [novoItemKey.push().key]: 'Roupa de banho',
           [novoItemKey.push().key]: 'Toalha',
           [novoItemKey.push().key]: 'Chinelo',
+          [novoItemKey.push().key]: 'Óculos de sol',
+          [novoItemKey.push().key]: 'Protetor solar',
         })
       }
 
 
       if (pergunta.passeioN == 'sim') {
-          proBanco.update({
-            [novoItemKey.push().key]: 'Roupa de passeio',
-            [novoItemKey.push().key]: 'Câmera fotográfica',
-            [novoItemKey.push().key]: 'Outro item de Turista',
-          })
+        proBanco.update({
+          [novoItemKey.push().key]: 'Roupa de passeio',
+          [novoItemKey.push().key]: 'Câmera fotográfica',
+          [novoItemKey.push().key]: 'Carregador da câmera',
+        })
       }
 
 
       if (pergunta.trabalho == 'sim') {
         proBanco.update({
-          [novoItemKey.push().key]: 'Roupa social'
+          [novoItemKey.push().key]: 'Calça formal',
+          [novoItemKey.push().key]: 'Camisa social',
+          [novoItemKey.push().key]: 'Cinto formal',
+          [novoItemKey.push().key]: 'Meias',
+          [novoItemKey.push().key]: 'Relógio formal',
+          [novoItemKey.push().key]: 'Roupa social',
+          [novoItemKey.push().key]: 'Laptop',
+          [novoItemKey.push().key]: 'Carregador do laptop',
+          [novoItemKey.push().key]: 'Celular do trabalho',
+          [novoItemKey.push().key]: 'Carregador do celular do trabalho',
+          [novoItemKey.push().key]: 'Crachá'
         })
       }
     })
   }
 
   async delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  presentLoadingDefault() {
+  carregando() {
     let loading = this.loadingCtrl.create({
       content: 'Aguarde, estamos montando sua lista...'
     });
-  
+
     loading.present();
-  
+
     setTimeout(() => {
       loading.dismiss();
     }, 5000);
@@ -163,22 +179,23 @@ export class ListaPage {
     this.buscaClima(this.cidade, this.myDate);
     // As duas funções abaixo fazem o efeito de espera para mostrar a lista.
     // Delay de 5s
-    this.presentLoadingDefault();
+    this.carregando();
     await this.delay(5000);
+
     // Mostra a lista na tela
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_added', function (snap) {
       var itemId = snap.key + "Item";
-      const li = document.createElement("ion-label");
+      const label = document.createElement("ion-label");
       const ionItem = document.createElement("ion-item");
       const check = document.createElement("input");
       check.type = "checkbox";
-      check.className = "chek"
-      li.innerText = snap.val();
-      li.id = snap.key;
+      check.className = "chek";
+      label.innerHTML = snap.val();
+      label.id = snap.key;
       ionItem.id = itemId;
       document.getElementById("lista").appendChild(ionItem);
       document.getElementById(itemId).appendChild(check);
-      document.getElementById(itemId).appendChild(li);
+      document.getElementById(itemId).appendChild(label);
     })
 
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_changed', function (snap) {
