@@ -1,12 +1,24 @@
 page-home {
         .main {
             background-image: url('../../assets/imgs/map1.jpg');
-          //background-position: center;
             background-repeat: no-repeat;
             background-size: 150%;
             font-family: Montserrat;
         }
         .destino {
-            margin-top: 15%;
+            margin-top: 15%;    
+        }
+        .save {
+            background: #e99651 !important;
+            color: black;
+            font-weight: bolder;
+            width: 95.2%;
+            margin-left: 9px; 
+         }
+        .date {
+            border-radius: 2px;
+            width: 95.2%;
+            height: 10px;
+            margin-left: 9px;       
         }
 }
