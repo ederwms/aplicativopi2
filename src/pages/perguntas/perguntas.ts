@@ -39,25 +39,73 @@ export class PerguntasPage {
 
   maisOpcoes(pergunta: string) {
     let alert = this.alertCtrl.create();
-    alert.setTitle('Qual tipo de esporte você irá praticar?');
+    // Alert personalizado para cada pergunta
 
-    alert.addInput({
-      type: 'checkbox',
-      label: 'Basquete',
-      value: 'bas'
-    });
+    if (pergunta == 'parqueAq') {
+      this.navCtrl.push(ListaPage);
+    }
+    // Esportes
+    if (pergunta == 'esportes') {
+      alert.setTitle('Qual tipo de esporte você irá praticar?');
 
-    alert.addInput({
-      type: 'checkbox',
-      label: 'Futebol',
-      value: 'fut'
-    });
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Basquete',
+        value: 'bas'
+      });
 
-    alert.addInput({
-      type: 'checkbox',
-      label: 'Tênis',
-      value: 'ten'
-    });
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Futebol',
+        value: 'fut'
+      });
+
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Tênis',
+        value: 'ten'
+      });
+    }
+
+    // Trabalho
+    if (pergunta == 'trabalho') {
+      alert.setTitle('Que tipo de trabalho?');
+
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Social',
+        value: 'soc'
+      });
+
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Casual',
+        value: 'cas'
+      });
+    }
+
+    // Passeio Noturno
+    if (pergunta == 'passeioN') {
+      alert.setTitle('Que tipo de passeio?');
+
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Jantar sofisticado',
+        value: 'jan'
+      });
+
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Balada',
+        value: 'bal'
+      });
+
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Barzinho',
+        value: 'bar'
+      });
+    }
 
     alert.addButton('Cancel');
     alert.addButton({
@@ -69,9 +117,7 @@ export class PerguntasPage {
         this.slides.lockSwipes(false)
         this.slides.slideNext(500)
         this.slides.lockSwipes(true)
-        if (pergunta == 'parqueAq') {
-          this.navCtrl.push(ListaPage);
-        }
+        
       }
     });
     alert.present();
