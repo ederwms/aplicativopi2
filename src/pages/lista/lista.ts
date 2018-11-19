@@ -75,35 +75,21 @@ export class ListaPage {
         proBanco.update({
           [novoItemKey.push().key]: 'Colete a prova de balas',
           [novoItemKey.push().key]: 'AK-47',
-          [novoItemKey.push().key]: 'Item zoando a cidade'
-        })
-      }
-      else if (cidadeDestino == 'Belo Horizonte') {
-        proBanco.update({
-          [novoItemKey.push().key]: 'Pão de Queijo', // Mudaremos essa depois, pão de queijo fica meio ruim kkkk
         })
       }
       else if (cidadeDestino == 'Goiânia') {
         proBanco.update({
-          [novoItemKey.push().key]: 'Berrante',
-          [novoItemKey.push().key]: 'Item zoando a cidade'
-        })
-      }
-      else if (cidadeDestino == 'Gramado') {
-        proBanco.update({
-          [novoItemKey.push().key]: 'Muitos agasalhos',
-          [novoItemKey.push().key]: 'Item zoando a cidade'
+          [novoItemKey.push().key]: 'Berrante'
         })
       }
       else if (cidadeDestino == 'Salvador') {
         proBanco.update({
-          [novoItemKey.push().key]: 'Berimbau',
-          [novoItemKey.push().key]: 'Item zoando a cidade'
+          [novoItemKey.push().key]: 'Berimbau'
         })
       }
-      else if (cidadeDestino == 'São Paulo') {
+      else if (cidadeDestino == 'Patos de Minas') {
         proBanco.update({
-          [novoItemKey.push().key]: 'Item zoando a cidade'
+          [novoItemKey.push().key]: 'Escudo contra mulheres bonitas'
         })
       }
 
