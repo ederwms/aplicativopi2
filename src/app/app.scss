@@ -19,10 +19,21 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 .picker-button  {
-    font-family: Montserrat;
+    //font-family: Montserrat;
     color: black !important;
     font-weight: bolder;
 }
-.picker-columns {
+
+.picker-button, .picker-columns, .alert-title, .alert-checkbox-label {
     font-family: Montserrat;
+}
+
+.button-inner {
+    font-family: Montserrat; 
+    color: black;
+}
+
+.alert-ios [aria-checked=true] .alert-checkbox-icon {
+    border-color: #e99651;
+    background-color: #e99651;
 }

@@ -59,9 +59,9 @@ export class PerguntasPage {
       value: 'ten'
     });
 
-    alert.addButton('Cancel');
+    alert.addButton('Cancelar');
     alert.addButton({
-      text: 'Okay',
+      text: 'Continuar',
       handler: data => {
         console.log('Checkbox data:', data);
         firebase.database().ref('meusDados/respostas/' + this.userId + '/teste').update(data);
