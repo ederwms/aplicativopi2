@@ -24,16 +24,16 @@ export class PerguntasPage {
     firebase.database().ref('meusDados/respostas/' + this.userId).update({
       [pergunta]: resposta,
     })
-    if (resposta == 'sim') {
+    if (pergunta == 'parqueAq') {
+      this.navCtrl.push(ListaPage);
+    }
+    else if (resposta == 'sim') {
       this.maisOpcoes(pergunta)
     }
     else {
       this.slides.lockSwipes(false)
       this.slides.slideNext(500)
       this.slides.lockSwipes(true)
-      if (pergunta == 'parqueAq') {
-        this.goLista;
-      }
     }
   }
 
