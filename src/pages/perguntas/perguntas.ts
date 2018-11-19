@@ -32,7 +32,7 @@ export class PerguntasPage {
       this.slides.slideNext(500)
       this.slides.lockSwipes(true)
       if (pergunta == 'parqueAq') {
-        this.navCtrl.push(ListaPage);
+        this.goLista;
       }
     }
   }
@@ -112,8 +112,7 @@ export class PerguntasPage {
       text: 'Okay',
       handler: data => {
         console.log('Checkbox data:', data);
-        firebase.database().ref('meusDados/respostas/' + this.userId + '/teste').update(data);
-
+        firebase.database().ref('meusDados/respostas/' + this.userId + '/' + pergunta).update(data);
         this.slides.lockSwipes(false)
         this.slides.slideNext(500)
         this.slides.lockSwipes(true)
