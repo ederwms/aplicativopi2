@@ -24,94 +24,40 @@ export class PerguntasPage {
     firebase.database().ref('meusDados/respostas/' + this.userId).update({
       [pergunta]: resposta,
     })
-    if (pergunta == 'parqueAq') {
-      this.navCtrl.push(ListaPage);
-    }
-    else if (resposta == 'sim') {
+    if (resposta == 'sim') {
       this.maisOpcoes(pergunta)
     }
     else {
       this.slides.lockSwipes(false)
       this.slides.slideNext(500)
       this.slides.lockSwipes(true)
-<<<<<<< HEAD
       if (pergunta == 'parqueAq') {
         this.navCtrl.push(ListaPage);
       }
-=======
->>>>>>> 66a301ff6b5ea40f9bff09160536d1835539ceac
     }
   }
 
   maisOpcoes(pergunta: string) {
     let alert = this.alertCtrl.create();
-    // Alert personalizado para cada pergunta
+    alert.setTitle('Qual tipo de esporte você irá praticar?');
 
-    if (pergunta == 'parqueAq') {
-      this.navCtrl.push(ListaPage);
-    }
-    // Esportes
-    if (pergunta == 'esportes') {
-      alert.setTitle('Qual tipo de esporte você irá praticar?');
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Basquete',
+      value: 'bas'
+    });
 
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Basquete',
-        value: 'bas'
-      });
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Futebol',
+      value: 'fut'
+    });
 
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Futebol',
-        value: 'fut'
-      });
-
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Tênis',
-        value: 'ten'
-      });
-    }
-
-    // Trabalho
-    if (pergunta == 'trabalho') {
-      alert.setTitle('Que tipo de trabalho?');
-
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Social',
-        value: 'soc'
-      });
-
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Casual',
-        value: 'cas'
-      });
-    }
-
-    // Passeio Noturno
-    if (pergunta == 'passeioN') {
-      alert.setTitle('Que tipo de passeio?');
-
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Jantar sofisticado',
-        value: 'jan'
-      });
-
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Balada',
-        value: 'bal'
-      });
-
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Barzinho',
-        value: 'bar'
-      });
-    }
+    alert.addInput({
+      type: 'checkbox',
+      label: 'Tênis',
+      value: 'ten'
+    });
 
     alert.addButton('Cancelar');
     alert.addButton({
@@ -122,13 +68,9 @@ export class PerguntasPage {
         this.slides.lockSwipes(false)
         this.slides.slideNext(500)
         this.slides.lockSwipes(true)
-<<<<<<< HEAD
         if (pergunta == 'parqueAq') {
           this.navCtrl.push(ListaPage);
         }
-=======
-        
->>>>>>> 66a301ff6b5ea40f9bff09160536d1835539ceac
       }
     });
     alert.present();
