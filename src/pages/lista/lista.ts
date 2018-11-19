@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import firebase from 'firebase';
-import { createElement } from '@angular/core/src/view/element';
 import { HttpClient } from '@angular/common/http';
 
 @IonicPage()
@@ -24,9 +23,6 @@ export class ListaPage {
 
 
   // --------------------------------------------------------------------------------------------------
-  teste: any;
-  path: any = "meusDados/"
-  busca: any;
   userId: string = firebase.auth().currentUser.uid;
   newItem: string;
 
