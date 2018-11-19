@@ -108,11 +108,29 @@ export class ListaPage {
       }
 
       // Lista Séria
-      if (pergunta.esportes == 'sim') {
-        proBanco.update({
+      /*if (pergunta.esportes == 'sim') {
+        
           [novoItemKey.push().key]: 'Camisa regata',
           [novoItemKey.push().key]: 'Shorts',
           [novoItemKey.push().key]: 'Tênis para esportes',
+        })
+      }*/
+      if (pergunta.esportes.includes('fut')) {
+        proBanco.update({
+        [novoItemKey.push().key]: 'Bola de futebol',
+        [novoItemKey.push().key]: 'Chuteira',
+        })
+      }
+      if (pergunta.esportes.includes('bas')) {
+        proBanco.update({
+        [novoItemKey.push().key]: 'Bola de basquete',
+        [novoItemKey.push().key]: 'Tênis',
+          
+        })
+      }
+      if (pergunta.esportes.includes('ten')) {
+        proBanco.update({
+        [novoItemKey.push().key]: 'Raquete de tenis'
         })
       }
 

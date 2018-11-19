@@ -32,7 +32,7 @@ export class PerguntasPage {
       this.slides.slideNext(500)
       this.slides.lockSwipes(true)
       if (pergunta == 'parqueAq') {
-        this.goLista;
+        this.navCtrl.push(ListaPage);
       }
     }
   }
@@ -69,7 +69,7 @@ export class PerguntasPage {
         this.slides.slideNext(500)
         this.slides.lockSwipes(true)
         if (pergunta == 'parqueAq') {
-          this.goLista;
+          this.navCtrl.push(ListaPage);
         }
       }
     });
