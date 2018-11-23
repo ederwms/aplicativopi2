@@ -5,7 +5,7 @@
     </ion-searchbar>
     <ion-item class="date">
       <ion-label>Data</ion-label>
-      <ion-datetime [(ngModel)]="myDate" displayFormat="DD/MM/YYYY" min="2018" max="2025-12-31" placeholder="07-09-2020"></ion-datetime>
+      <ion-datetime [(ngModel)]="myDate" displayFormat="DD/MM/YYYY" min="2018" max="2025-12-31" placeholder="07-09-2020" cancelText="Cancelar" doneText="OK"></ion-datetime>
     </ion-item>
     <div text-center>
     <button ion-button class="save" block type="submit" (click)="perguntas(destino, myDate)">Salvar</button>
