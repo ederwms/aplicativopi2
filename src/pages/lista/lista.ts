@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import firebase from 'firebase';
 import { HttpClient } from '@angular/common/http';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -262,6 +263,10 @@ export class ListaPage {
     })
     console.log(this.newItem)
     this.newItem = null
+  }
+
+  novaViagem() {
+    this.navCtrl.push(HomePage);
   }
 
 }

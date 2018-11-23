@@ -14,7 +14,7 @@ import { FbauthPage } from '../pages/fbauth/fbauth'
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = IntroPage;
+  rootPage: any = IntroPage;
   mostrou: any = localStorage.getItem("mostrouIntro");
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private screenOrientation: ScreenOrientation) {
@@ -23,20 +23,20 @@ export class MyApp {
 
     var user = firebase.auth().currentUser;
 
-  if (user) {
-    this.rootPage = HomePage;
-  } else {
-      if(this.mostrou == 's') {
+    if (user) {
+      this.rootPage = HomePage;
+    } else {
+      if (this.mostrou == 's') {
         this.rootPage = FbauthPage;
       }
       else {
         this.rootPage = IntroPage;
       }
 
-  }
+    }
 
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY);
-    
+
     platform.ready().then(() => {
       splashScreen.show();
       statusBar.styleDefault();

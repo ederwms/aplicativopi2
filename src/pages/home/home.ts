@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { PerguntasPage } from '../perguntas/perguntas';
 
 import { ListaPage } from '../lista/lista';
@@ -13,14 +13,25 @@ export class HomePage {
   destino: any;
   myDate: any;
 
-  constructor(public navCtrl: NavController) {
-    
+  constructor(public navCtrl: NavController, public alertControl: AlertController) {
+
   }
 
   perguntas() {
-    localStorage.setItem('destino', this.destino);
-    localStorage.setItem('data', this.myDate);
-    this.navCtrl.push(PerguntasPage);
+    if ((this.destino == '') || (this.myDate == null)) {
+      let alerta = this.alertControl.create({
+        title: 'Erro',
+        message: 'Por favor, preencha todos os campos.',
+        buttons: ['OK']
+      });
+
+      alerta.present();
+    }
+    else {
+      localStorage.setItem('destino', this.destino);
+      localStorage.setItem('data', this.myDate);
+      this.navCtrl.push(PerguntasPage);
+    }
   }
 
   goLista() {
