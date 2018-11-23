@@ -75,7 +75,6 @@ export class ListaPage {
         proBanco.update({
           [novoItemKey.push().key]: 'Colete a prova de balas',
           [novoItemKey.push().key]: 'AK-47',
-          [novoItemKey.push().key]: 'Item zoando a cidade'
         })
       }
       else if (cidadeDestino == 'Belo Horizonte') {
@@ -86,24 +85,16 @@ export class ListaPage {
       else if (cidadeDestino == 'Goiânia') {
         proBanco.update({
           [novoItemKey.push().key]: 'Berrante',
-          [novoItemKey.push().key]: 'Item zoando a cidade'
         })
       }
       else if (cidadeDestino == 'Gramado') {
         proBanco.update({
           [novoItemKey.push().key]: 'Muitos agasalhos',
-          [novoItemKey.push().key]: 'Item zoando a cidade'
         })
       }
       else if (cidadeDestino == 'Salvador') {
         proBanco.update({
           [novoItemKey.push().key]: 'Berimbau',
-          [novoItemKey.push().key]: 'Item zoando a cidade'
-        })
-      }
-      else if (cidadeDestino == 'São Paulo') {
-        proBanco.update({
-          [novoItemKey.push().key]: 'Item zoando a cidade'
         })
       }
       else if (cidadeDestino == 'Patos de Minas') {
@@ -113,13 +104,15 @@ export class ListaPage {
       }
 
       // Lista Séria
+      
+      // Se responder sim para esportes, temos os seguintes itens gerais.
       if (pergunta.esportes == 'sim') {
         proBanco.update({
           [novoItemKey.push().key]: 'Camisa regata',
           [novoItemKey.push().key]: 'Shorts',
-          [novoItemKey.push().key]: 'Tênis para esportes',
         })
       }
+      // Se responder que irá jogar futebol
       if(pergunta.esportes.includes('fut')) {
         proBanco.update({
           [novoItemKey.push().key]: 'Camisa do seu time',
@@ -127,20 +120,23 @@ export class ListaPage {
           [novoItemKey.push().key]: 'Chuteira',
         })
       }
-      if(pergunta.esportes.includes('bas')) {
+      // Se responder que irá jogar basquete
+      if(pergunta.esportes.includes('nat')) {
         proBanco.update({
-          [novoItemKey.push().key]: 'Bola de Basquete',
-          [novoItemKey.push().key]: 'Tênis de basquete',
+          [novoItemKey.push().key]: 'Touca',
+          [novoItemKey.push().key]: 'Óculos de natação',
+          [novoItemKey.push().key]: 'Traje de natação',
         })
       }
+      // Se responder que irá jogar tênis
       if(pergunta.esportes.includes('ten')) {
         proBanco.update({
-          [novoItemKey.push().key]: 'Camisa regata',
           [novoItemKey.push().key]: 'Raquete de tênis',
           [novoItemKey.push().key]: 'Bola de tênis',
         })
       }
 
+      // Se responder que irá ao parque aquático
       if (pergunta.parqueAq == 'sim') {
         proBanco.update({
           [novoItemKey.push().key]: 'Roupa de banho',
@@ -151,29 +147,59 @@ export class ListaPage {
         })
       }
 
-
-      if (pergunta.passeioN == 'sim') {
+      // Se o passeio noturno for um jantar sofisticado
+      if (pergunta.passeioN.includes('jan')) {
         proBanco.update({
-          [novoItemKey.push().key]: 'Roupa de passeio',
-          [novoItemKey.push().key]: 'Câmera fotográfica',
-          [novoItemKey.push().key]: 'Carregador da câmera',
+          [novoItemKey.push().key]: 'Roupa sofisticada',
+          [novoItemKey.push().key]: 'Cartão de crédito',
         })
       }
-
-
+      // Se o passeio noturno for uma balada
+      if (pergunta.passeioN.includes('bal')) {
+        proBanco.update({
+          [novoItemKey.push().key]: 'Engov',
+          [novoItemKey.push().key]: 'Amigos para te carregar',
+          [novoItemKey.push().key]: 'Dorflex',
+        })
+      }
+      // Se responder que irá fazer um passeio noturno
+      if (pergunta.passeioN == 'sim') {
+        proBanco.update({
+          [novoItemKey.push().key]: 'Câmera fotográfica',
+          [novoItemKey.push().key]: 'Carregador da câmera'
+        })
+      }
+      
+      // Se responder que será uma viagem a trabalho
       if (pergunta.trabalho == 'sim') {
         proBanco.update({
-          [novoItemKey.push().key]: 'Calça formal',
-          [novoItemKey.push().key]: 'Camisa social',
-          [novoItemKey.push().key]: 'Cinto formal',
-          [novoItemKey.push().key]: 'Meias',
-          [novoItemKey.push().key]: 'Relógio formal',
-          [novoItemKey.push().key]: 'Roupa social',
-          [novoItemKey.push().key]: 'Laptop',
-          [novoItemKey.push().key]: 'Carregador do laptop',
           [novoItemKey.push().key]: 'Celular do trabalho',
           [novoItemKey.push().key]: 'Carregador do celular do trabalho',
           [novoItemKey.push().key]: 'Crachá'
+        })
+      }
+      // Tipo de trabalho: Social
+      if (pergunta.trabalho.includes('soc')) {
+        proBanco.update({
+          [novoItemKey.push().key]: 'Calça social',
+          [novoItemKey.push().key]: 'Camisa social',
+          [novoItemKey.push().key]: 'Sapato social',
+          [novoItemKey.push().key]: 'Meias',
+          [novoItemKey.push().key]: 'Relógio',
+          [novoItemKey.push().key]: 'Laptop',
+          [novoItemKey.push().key]: 'Carregador do laptop',
+        })
+      }
+      // Tipo de trabalho: Casual
+      if (pergunta.trabalho.includes('cas')) {
+        proBanco.update({
+          [novoItemKey.push().key]: 'Calça jeans',
+          [novoItemKey.push().key]: 'Camiseta casual',
+          [novoItemKey.push().key]: 'Sapato confortável',
+          [novoItemKey.push().key]: 'Meias',
+          [novoItemKey.push().key]: 'Relógio',
+          [novoItemKey.push().key]: 'Laptop',
+          [novoItemKey.push().key]: 'Carregador do laptop',
         })
       }
     })

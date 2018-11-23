@@ -47,8 +47,8 @@ export class PerguntasPage {
 
       alert.addInput({
         type: 'checkbox',
-        label: 'Basquete',
-        value: 'bas'
+        label: 'Natação',
+        value: 'nat'
       });
 
       alert.addInput({
@@ -95,12 +95,6 @@ export class PerguntasPage {
         type: 'checkbox',
         label: 'Balada',
         value: 'bal'
-      });
-
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Barzinho',
-        value: 'bar'
       });
     }
 
