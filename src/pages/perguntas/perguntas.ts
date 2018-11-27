@@ -102,11 +102,22 @@ export class PerguntasPage {
     alert.addButton({
       text: 'Continuar',
       handler: data => {
-        console.log('Checkbox data:', data);
-        firebase.database().ref('meusDados/respostas/' + this.userId + '/' + pergunta).update(data);
-        this.slides.lockSwipes(false)
-        this.slides.slideNext(500)
-        this.slides.lockSwipes(true)
+        if ((data == '') || (data == null)) {
+          this.slides.lockSwipes(false);
+          this.slides.slideNext(500);
+          this.slides.lockSwipes(true);
+
+          this.slides.lockSwipes(false);
+          this.slides.slidePrev(500);
+          this.slides.lockSwipes(true);
+        }
+        else {
+          console.log('Checkbox data:', data);
+          firebase.database().ref('meusDados/respostas/' + this.userId + '/' + pergunta).update(data);
+          this.slides.lockSwipes(false);
+          this.slides.slideNext(500);
+          this.slides.lockSwipes(true);
+        }
       }
     });
     alert.present();

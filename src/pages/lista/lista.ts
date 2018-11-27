@@ -15,8 +15,10 @@ export class ListaPage {
    * É mais facil de manipular o objeto com essa variavel.
    */
   coordenadas;
+
   // Variavel que armazena o objeto da previsao do tempo.
   previsao;
+
   // Variaveis input
   myDate: any;
   cidade: any;
@@ -105,7 +107,7 @@ export class ListaPage {
       }
 
       // Lista Séria
-      
+
       // Se responder sim para esportes, temos os seguintes itens gerais.
       if (pergunta.esportes == 'sim') {
         proBanco.update({
@@ -114,7 +116,7 @@ export class ListaPage {
         })
       }
       // Se responder que irá jogar futebol
-      if(pergunta.esportes.includes('fut')) {
+      if (pergunta.esportes.includes('fut')) {
         proBanco.update({
           [novoItemKey.push().key]: 'Camisa do seu time',
           [novoItemKey.push().key]: 'Bola de futebol',
@@ -122,7 +124,7 @@ export class ListaPage {
         })
       }
       // Se responder que irá jogar basquete
-      if(pergunta.esportes.includes('nat')) {
+      if (pergunta.esportes.includes('nat')) {
         proBanco.update({
           [novoItemKey.push().key]: 'Touca',
           [novoItemKey.push().key]: 'Óculos de natação',
@@ -130,7 +132,7 @@ export class ListaPage {
         })
       }
       // Se responder que irá jogar tênis
-      if(pergunta.esportes.includes('ten')) {
+      if (pergunta.esportes.includes('ten')) {
         proBanco.update({
           [novoItemKey.push().key]: 'Raquete de tênis',
           [novoItemKey.push().key]: 'Bola de tênis',
@@ -170,7 +172,7 @@ export class ListaPage {
           [novoItemKey.push().key]: 'Carregador da câmera'
         })
       }
-      
+
       // Se responder que será uma viagem a trabalho
       if (pergunta.trabalho == 'sim') {
         proBanco.update({
