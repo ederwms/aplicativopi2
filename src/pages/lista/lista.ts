@@ -28,6 +28,8 @@ export class ListaPage {
   // --------------------------------------------------------------------------------------------------
   userId: string = firebase.auth().currentUser.uid;
   newItem: string;
+  // Icone
+  icone: string = "help";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public loadingCtrl: LoadingController) {
     this.myDate = localStorage.getItem('data');
@@ -55,6 +57,10 @@ export class ListaPage {
       let url = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d6930b3aaccb1375812ce727ea86dbfc/' + lat + ',' + long + ',' + data + 'T' + horas + ':' + minutos + ':' + segundos + '?units=si&lang=pt&exclude=minutely,flags&outFormat=json';
       this.http.get(url).subscribe(data => {
         this.previsao = data;
+        if (this.previsao.currently.icon == 'partly-cloudy-day') {
+          this.icone = 'partly-sunny';
+        }
+        
         let info = document.querySelector('ion-content h1.rj');
         let infoClima = document.querySelector('ion-content h5.weather');
         let infoClimaText = document.createTextNode(this.previsao.currently.summary);
