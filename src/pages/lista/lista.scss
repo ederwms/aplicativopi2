@@ -30,14 +30,15 @@ page-lista {
     }
     
     ion-icon {
-        margin-top: 5%;
+        margin-top: 6%;
         margin-left: 5%;
         font-size: 5em;
     }
     .rj {
+        position: absolute;
         float: right;   
-        margin-top: 5%;
-        margin-right: 5%;
+        top: 11%;
+        right: 5%;
         font-family: Montserrat;
     }
     .chek {
@@ -50,11 +51,11 @@ page-lista {
         background: #ccc;
         border-radius: 30px;
     }
-    h5 {
+    h2 {
         font-family: Montserrat;
         font-weight: Bolder;
-        margin-top: -10%;
-        margin-left: 70%;
+        margin-top: 10%;
+        text-align: right;
     }
     h2 {
         font-family: Montserrat;

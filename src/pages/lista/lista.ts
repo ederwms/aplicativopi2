@@ -29,7 +29,7 @@ export class ListaPage {
   userId: string = firebase.auth().currentUser.uid;
   newItem: string;
   // Icone
-  icone: string = "help";
+  icone: string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public loadingCtrl: LoadingController) {
     this.myDate = localStorage.getItem('data');
@@ -57,16 +57,47 @@ export class ListaPage {
       let url = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d6930b3aaccb1375812ce727ea86dbfc/' + lat + ',' + long + ',' + data + 'T' + horas + ':' + minutos + ':' + segundos + '?units=si&lang=pt&exclude=minutely,flags&outFormat=json';
       this.http.get(url).subscribe(data => {
         this.previsao = data;
-        if (this.previsao.currently.icon == 'partly-cloudy-day') {
-          this.icone = 'partly-sunny';
-        }
-        
         let info = document.querySelector('ion-content h1.rj');
-        let infoClima = document.querySelector('ion-content h5.weather');
+        let infoClima = document.querySelector('ion-content h2.weather');
         let infoClimaText = document.createTextNode(this.previsao.currently.summary);
         let infoText = document.createTextNode(this.cidade + ', ' + Math.floor(this.previsao.currently.temperature) + '°');
         info.appendChild(infoText);
         infoClima.appendChild(infoClimaText);
+        /**
+         * Definição do ícone
+         * 1 - Dia limpo
+         */
+        if (this.previsao.currently.icon == 'clear-day') {
+          this.icone = 'sunny';
+        }
+        // 2 - Noite limpa
+        if (this.previsao.currently.icon == 'clear-night') {
+          this.icone = 'moon';
+        }
+        // 3 - Chuva
+        if (this.previsao.currently.icon == 'rain') {
+          this.icone = 'rainy';
+        }
+        // 4 - Neve
+        if (this.previsao.currently.icon == 'snow') {
+          this.icone = 'snow';
+        }
+        // 5 - Nublado
+        if (this.previsao.currently.icon == 'cloudy') {
+          this.icone = 'cloud';
+        }
+        // 6 - Dia parcialmente nublado
+        if (this.previsao.currently.icon == 'partly-cloudy-day') {
+          this.icone = 'partly-sunny';
+        }
+        // 7 - Noite parcialmente nublada
+        if (this.previsao.currently.icon == 'partly-cloudy-night') {
+          this.icone = 'cloudy-night';
+        }
+        // 8 - Caso vier "wind", "sleet" ou "fog" na resposta da API, o icone fica vazio.
+        if ((this.previsao.currently.icon == 'sleet') || (this.previsao.currently.icon == 'wind') || (this.previsao.currently.icon == 'fog')) {
+          this.icone = '';
+        }
         console.log(this.previsao);
       });
     });
@@ -227,7 +258,7 @@ export class ListaPage {
 
     setTimeout(() => {
       loading.dismiss();
-    }, 5000);
+    }, 6000);
   }
 
   async escreveLista() {
@@ -236,7 +267,7 @@ export class ListaPage {
     // As duas funções abaixo fazem o efeito de espera para mostrar a lista.
     // Delay de 5s
     this.carregando();
-    await this.delay(5000);
+    await this.delay(6000);
 
     // Mostra a lista na tela
     firebase.database().ref('meusDados/respostas/' + this.userId).child('lista').on('child_added', function (snap) {

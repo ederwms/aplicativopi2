@@ -1,7 +1,11 @@
 <ion-content>
-  <ion-icon class="icone" name="{{icone}}"></ion-icon>
-  <h1 class="rj"></h1>
-  <h5 class="weather"></h5>
+  <ion-card>
+    <ion-card-content>
+      <ion-icon class="icone" name="{{icone}}"></ion-icon>
+      <h1 class="rj"></h1>
+      <h2 class="weather"></h2>
+    </ion-card-content>
+  </ion-card>
   <ion-card>
     <ion-card-content>
       <ion-list id="lista">
@@ -10,11 +14,11 @@
     </ion-card-content>
   </ion-card>
   <ion-card>
-      <ion-card-content>
-          <h2>Faltou algum item na lista?</h2>
-          <ion-input type="text" [(ngModel)]="newItem" id="newItem" placeholder="Adicionar item:"></ion-input>
-          <button ion-button class="btn" (click)="adicionarItem()" >Adicionar</button>
-      </ion-card-content>
+    <ion-card-content>
+      <h2>Faltou algum item na lista?</h2>
+      <ion-input type="text" [(ngModel)]="newItem" id="newItem" placeholder="Adicionar item:"></ion-input>
+      <button ion-button class="btn" (click)="adicionarItem()">Adicionar</button>
+    </ion-card-content>
   </ion-card>
   <div text-center>
     <button ion-button class="newtravel" (click)="novaViagem()">Nova viagem</button>
