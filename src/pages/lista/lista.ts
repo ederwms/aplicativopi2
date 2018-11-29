@@ -251,7 +251,7 @@ export class ListaPage {
 
   carregando() {
     let loading = this.loadingCtrl.create({
-      content: 'Aguarde, estamos montando sua lista...'
+      content: 'Aguarde, estamos montando sua mala...'
     });
 
     loading.present();
