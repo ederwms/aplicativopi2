@@ -38,9 +38,9 @@ export class MyApp {
   //  this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT_PRIMARY);
 
     platform.ready().then(() => {
-      splashScreen.show();
-      statusBar.styleDefault();
-      splashScreen.hide();
+   //   splashScreen.show();
+     // statusBar.styleDefault();
+     // splashScreen.hide();
     });
   }
 }
